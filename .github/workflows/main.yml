@@ -91,7 +91,7 @@ jobs:
             Library-${{ matrix.projectPath }}-
             Library-
       # https://github.com/game-ci/unity-builder/releases/
-      - uses: game-ci/unity-builder@v2.0-alpha-13
+      - uses: game-ci/unity-builder@main
         with:
           projectPath: ${{ env.PROJECT_PATH }}
           targetPlatform: ${{ matrix.targetPlatform }}
