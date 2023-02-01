@@ -58,7 +58,7 @@ public class CameraShaker : MonoBehaviour
             if (Time.time - _cameraShakeStartTime > _cameraShakeDuration)
             {
                 _isCameraShaking = false;
-                _targetTransform.position = _originPosition; 
+                // _targetTransform.position = _originPosition; 
                 OnCameraShakeEnded?.Invoke();
             } else
             {

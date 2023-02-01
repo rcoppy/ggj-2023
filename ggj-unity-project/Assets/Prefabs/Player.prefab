@@ -114,8 +114,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.45419466
-  m_Center: {x: 0, y: -0.8502772, z: 0}
+  m_Radius: 0.2
+  m_Center: {x: 0, y: -0.91, z: 0}
 --- !u!114 &3693356188354065714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
+  _puppetYRotOffset: 0
   OnWalkStarted:
     m_PersistentCalls:
       m_Calls: []
