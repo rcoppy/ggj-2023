@@ -4,6 +4,7 @@ using GGJ2022;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(PlayerAnimationManager))]
 public class PlayerStateManager : MonoBehaviour
 {
     public enum States
@@ -20,12 +21,20 @@ public class PlayerStateManager : MonoBehaviour
     [SerializeField] private RelativeCharacterController _movementController;
     [SerializeField] private RollingAttackController _rollingAttackController;
 
+    [SerializeField] private PlayerAnimationManager _animationManager; 
+    
     private States _activeState = States.Move; 
     
     // Start is called before the first frame update
     void Start()
     {
-        _rollingAttackController.OnRollEnd += () => SetActiveState(States.Move); 
+        _rollingAttackController.OnRollEnd += () =>
+        {
+            Debug.Log("roll ended");
+            _animationManager.DoAnimationTrigger("ExitRoll"); 
+            SetActiveState(States.Move);
+        };
+        
     }
 
     // Update is called once per frame
@@ -36,18 +45,25 @@ public class PlayerStateManager : MonoBehaviour
 
     void SetActiveState(States state)
     {
+        if (_activeState == state) return; 
+        
         _movementController.enabled = false;
         _rollingAttackController.enabled = false; 
         
         switch (state) 
         {
             case States.Attack:
-                _rollingAttackController.enabled = true; 
+                _rollingAttackController.enabled = true;
+
+                var dir = _movementController.GetMoveDirectionFromInputVector(); 
+                _rollingAttackController.TriggerRoll(dir);
+                _animationManager.DoAnimationTrigger("EnterRoll");
                 break; 
             case States.Move:
                 _movementController.enabled = true; 
                 break; 
             case States.Die:
+                _animationManager.DoAnimationTrigger("Die");
                 break;
             case States.Disabled:
                 break; 

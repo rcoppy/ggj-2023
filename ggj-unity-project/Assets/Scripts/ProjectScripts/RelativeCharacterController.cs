@@ -47,7 +47,8 @@ namespace GGJ2022
         // there is a child nested in this gameobject holding the actual visual character representation
         // i.e. 'the puppet'
         Animator _puppetAnimator; 
-        GameObject _puppet;
+        
+        [SerializeField] GameObject[] _puppets;
 
         private Vector2 _lastNonzeroMoveVector;
 
@@ -102,7 +103,7 @@ namespace GGJ2022
             _rigidbody = GetComponent<Rigidbody>();
             _boundingCapsule = GetComponent<Collider>();
         
-            _puppet = transform.GetChild(0).gameObject;
+            // _puppet = transform.GetChild(0).gameObject;
             // _puppetAnimator = _puppet.GetComponent<Animator>();
             //
             // if (_puppetAnimator == null)
@@ -120,8 +121,13 @@ namespace GGJ2022
 
             if (vel.magnitude > 0.1f)
             {
-                var target = Quaternion.AngleAxis(_puppetYRotOffset, transform.up) * Quaternion.LookRotation(vel, transform.up);
-                _puppet.transform.rotation = Quaternion.Slerp(_puppet.transform.rotation, target, 0.08f);
+                var target = Quaternion.AngleAxis(_puppetYRotOffset, transform.up) *
+                             Quaternion.LookRotation(vel, transform.up);
+
+                foreach (GameObject p in _puppets)
+                {
+                    p.transform.rotation = Quaternion.Slerp(p.transform.rotation, target, 0.08f);
+                }
             }
         }
         
@@ -249,7 +255,7 @@ namespace GGJ2022
             return false; 
         }
 
-        Vector3 GetMoveDirectionFromInputVector()
+        public Vector3 GetMoveDirectionFromInputVector()
         {
             Vector3 up = WorldUp;
             Vector3 right = _referenceCamera.transform.right;
