@@ -5,9 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a9905b-8935-4032-832b-5e2b77a92758" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Asset/{924446c5-fb2e-464b-ad09-929aabf00c37}.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Asset/{924446c5-fb2e-464b-ad09-929aabf00c37}.user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Mixer.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Mixer.user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Workspace.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.unsaved/.user/Metadata/Workspace.user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Asset/{924446c5-fb2e-464b-ad09-929aabf00c37}.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Asset/{924446c5-fb2e-464b-ad09-929aabf00c37}.user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Mixer.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Mixer.user.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Workspace.user.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../audio/fmod/ggj2023/.user/Metadata/Workspace.user.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ggj-unity-project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ggj-unity-project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/BurstAotSettings_StandaloneWindows.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/midjourney_equirectangular_skybox.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/midjourney_equirectangular_skybox.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/test-skybox.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/test-skybox.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Settings/player-input-actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Settings/player-input-actions.inputactions" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,6 +25,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Menu Assets/ButtonBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerStateManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -88,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1674801298817</updated>
       <workItem from="1674801316188" duration="3153000" />
-      <workItem from="1675130874387" duration="14458000" />
+      <workItem from="1675130874387" duration="16988000" />
     </task>
     <servers />
   </component>
