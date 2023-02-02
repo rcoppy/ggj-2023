@@ -135,7 +135,8 @@ namespace GGJ2022
 
             if (_isInputEnabled)
             {
-                var direction = GetMoveDirectionFromInputVector();
+                var intendedDirection = GetMoveDirectionFromInputVector();
+                var direction = GetDeflectedMoveDirection(intendedDirection);
 
                 if (!_isWalking && IsOnGround && direction.magnitude > 0.085f)
                 {
@@ -179,6 +180,40 @@ namespace GGJ2022
             }
             
             UpdatePuppet();
+        }
+
+        private Vector3 GetDeflectedMoveDirection(Vector3 intendedDir)
+        {
+            RaycastHit hit;
+            Vector3 boundsPoint = _rigidbody.ClosestPointOnBounds(
+                _rigidbody.worldCenterOfMass 
+                + _boundingCapsule.bounds.extents.magnitude * intendedDir
+                );
+
+            float dist = (boundsPoint - _rigidbody.worldCenterOfMass).magnitude; 
+
+            if (Physics.Raycast(_rigidbody.worldCenterOfMass,
+                    intendedDir,
+                    out hit,
+                    2 * dist,
+                    _groundLayerMask))
+            {
+                Vector3 t1 = Vector3.Cross( hit.normal, transform.forward );
+                Vector3 t2 = Vector3.Cross( hit.normal, transform.up );
+                Vector3 deflectedDir = t1.magnitude > t2.magnitude ? t1 : t2; 
+           
+                Debug.DrawRay(hit.point, t1);
+                Debug.DrawRay(hit.point, t2);
+
+                if (Vector3.Dot(intendedDir, deflectedDir) < 0f)
+                {
+                    deflectedDir *= -1f; 
+                }
+                
+                return deflectedDir.normalized;    
+            }
+
+            return intendedDir;
         }
 
         public void OnJumpInputReceived(InputAction.CallbackContext context)
