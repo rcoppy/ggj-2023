@@ -130,7 +130,7 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _Tiling: 0.22
-    - _Use_Normal_Map: 1
+    - _Use_Normal_Map: 0
     - _Use_Specular_Map: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
