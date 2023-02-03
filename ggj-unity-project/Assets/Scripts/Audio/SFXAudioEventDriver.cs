@@ -78,7 +78,14 @@ namespace GGJ2022.Audio
 
             FMOD.GUID guid = _sfxDict[action];
 
-            FMODUnity.RuntimeManager.PlayOneShotAttached(guid, _listener);
+            try
+            {
+                FMODUnity.RuntimeManager.PlayOneShotAttached(guid, _listener);
+            }
+            catch
+            {
+                Debug.LogError("couldn't play sfx; are banks loaded?");
+            }
         }
 
         private void OnEnable()

@@ -9922,6 +9922,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Banks:
   - Master
+  - Master.strings
   Scene: TitleScreen
   MinLoadingTime: 1.7
 --- !u!114 &1401291319
