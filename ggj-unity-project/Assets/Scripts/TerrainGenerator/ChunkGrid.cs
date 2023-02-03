@@ -38,8 +38,8 @@ public class ChunkGrid : MonoBehaviour
             actionOnRelease: (obj) => obj.SetActive(false), 
             actionOnDestroy: (obj) => Destroy(obj), 
             false, 
-            defaultCapacity: 10, 
-            10);
+            defaultCapacity: 20, 
+            20);
  
         GenerateNeighborsFromPosition(Player.transform.position);
     }
@@ -101,6 +101,7 @@ public class ChunkGrid : MonoBehaviour
         {
             if (!currentNeighborPositions.Contains(neighborPos))
             {
+                
                 GameObject chunk = _chunksPool.Get();
                 chunk.transform.position = neighborPos;
                 currentChunks.Add(chunk);
@@ -118,9 +119,9 @@ public class ChunkGrid : MonoBehaviour
     private List<Vector3> GetNewNeighborPositions(Vector3 chunkCoordinates)
     {
         List<Vector3> neighbors = new List<Vector3>();
-        for (int x = -1; x <= 1; x++)
+        for (int x = -2; x <= 2; x++)
         {
-            for (int y = -1; y <= 1; y++)
+            for (int y = -2; y <= 2; y++)
             {
                 Vector3 chunkPosition = new Vector3
                     (chunkCoordinates.x * sizeOfChunk  + (sizeOfChunk * x), 0f, 
