@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 3693356188354065714}
   - component: {fileID: 3693356188354065672}
   - component: {fileID: 3693356188354065673}
+  - component: {fileID: 1960220777}
+  - component: {fileID: 1960220778}
+  - component: {fileID: 1960220785}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -130,23 +133,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da6456d518614215b72d447439923f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardAcceleration: 10
-  _maxForwardSpeed: 3.5
-  _jumpHeight: 6
-  _groundFriction: 0.025
+  _forwardAcceleration: 12
+  _maxForwardSpeed: 5
+  _jumpHeight: 0.4
+  _groundFriction: 0.05
   _groundCheckSphere: {fileID: 3693356188354065715}
   _referenceCamera: {fileID: 0}
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _puppetYRotOffset: 0
-  _puppets: []
+  _puppetYRotOffset: -90
+  _puppets:
+  - {fileID: 3628391429258876086}
+  - {fileID: 8542586826044453018}
   OnWalkStarted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960220785}
+        m_TargetAssemblyTypeName: PlayerAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WalkStart
+          m_BoolArgument: 0
+        m_CallState: 2
   OnWalkEnded:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960220785}
+        m_TargetAssemblyTypeName: PlayerAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: WalkEnd
+          m_BoolArgument: 0
+        m_CallState: 2
   OnJumpStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -212,11 +241,35 @@ MonoBehaviour:
     m_ActionId: 421b1092-571e-4e36-820e-2cf691b4c301
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: SimpleFollowCamera, Assembly-CSharp
+        m_MethodName: UpdateYawAxis
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: bd4fd0aa-13d8-44f0-a0f7-64e4a4d23f66
     m_ActionName: Player/Look[/Mouse/delta,/Pen/delta]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960220777}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: DoAttack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ddc142ab-b7c2-4a14-9bbf-a7b19f2d5ef8
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
@@ -276,14 +329,73 @@ MonoBehaviour:
     m_ActionId: d7f2dc9c-f2ef-4211-bcdf-fb7825348536
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1960220777}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: ToggleTargeting
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 15d2cf52-d02f-41ee-a1af-4e551976af57
-    m_ActionName: Player/Toggle Targeting[/Keyboard/e,/Mouse/rightButton]
+    m_ActionName: Player/Toggle Targeting[/Keyboard/e,/Mouse/rightButton,/XInputControllerWindows/rightShoulder,/XInputControllerWindows1/rightShoulder]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1960220777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693356188354065713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3812b30f1e49404eac6d99c5d41385f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isTargeting: 0
+  _movementController: {fileID: 3693356188354065714}
+  _rollingAttackController: {fileID: 1960220778}
+  _animationManager: {fileID: 1960220785}
+--- !u!114 &1960220778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693356188354065713}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 019bde41b56beba4394f3d47ac3b891c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rollImpulse: 10
+  _maxRollTime: 0.4
+--- !u!114 &1960220785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693356188354065713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37927fb7ff6754180b28e880888164a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _snailAnimator: {fileID: 7883378688313765082}
+  _ballAnimator: {fileID: 0}
+  _rollAttackController: {fileID: 1960220778}
+  _snailPuppet: {fileID: 8542586826044453018}
+  _ballPuppet: {fileID: 3628391429258876086}
 --- !u!1001 &4511422747141810663
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -351,6 +463,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball_Temporary
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff574e28d5090442aa79c0f79ff284fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff574e28d5090442aa79c0f79ff284fa, type: 3}
 --- !u!1 &3628391429258876086 stripped
@@ -366,7 +483,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3628391429258876086}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 241decabe18374a4fb721cf1eb761d2a, type: 3}
   m_Name: 
@@ -379,6 +496,26 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4511422747141810663}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8826175541215221893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -4258411891960909470, guid: ff574e28d5090442aa79c0f79ff284fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 4511422747141810663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1991948202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8826175541215221893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 241decabe18374a4fb721cf1eb761d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 2000
+  _axis: {x: 0.4, y: 1, z: 0}
 --- !u!1001 &5424991230887937463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -409,7 +546,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
@@ -419,7 +556,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
@@ -434,7 +571,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3d0044efe27724d779fd88cafe16376b,
         type: 3}
@@ -484,9 +621,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _squishSettings:
-    speed: 30
+    speed: 5
     min: 0.74
-    max: 1.45
+    max: 1.2
     duration: 0.67
     shouldLoop: 1
 --- !u!4 &5531486548246274652 stripped
