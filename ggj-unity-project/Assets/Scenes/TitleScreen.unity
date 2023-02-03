@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731689, g: 0.13414702, b: 0.1210784, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -829,6 +829,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2088536865}
+        m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+        m_MethodName: FireSFXEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SnailRoll
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1206259149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +870,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 2088536865}
+          m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+          m_MethodName: FireSFXEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MenuSelect
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 9
     callback:
       m_PersistentCalls:
@@ -872,6 +896,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2088536865}
+          m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+          m_MethodName: FireSFXEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MenuSelect
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1206259150
@@ -1022,6 +1058,18 @@ MonoBehaviour:
           m_StringArgument: SampleScene
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2088536865}
+        m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+        m_MethodName: FireSFXEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SnailRoll
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1853667102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,6 +1099,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 2088536865}
+          m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+          m_MethodName: FireSFXEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MenuSelect
+            m_BoolArgument: 0
+          m_CallState: 2
   - eventID: 9
     callback:
       m_PersistentCalls:
@@ -1065,6 +1125,18 @@ MonoBehaviour:
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2088536865}
+          m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+          m_MethodName: FireSFXEvent
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: MenuSelect
             m_BoolArgument: 0
           m_CallState: 2
 --- !u!114 &1853667103
@@ -1105,3 +1177,89 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853667097}
   m_CullTransparentMesh: 1
+--- !u!114 &2088536865 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5854620844083239936, guid: 511b17e512d5648cf81faef6eb17bb43,
+    type: 3}
+  m_PrefabInstance: {fileID: 5854620842139408161}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f23e308ae024b0b85be947d142d4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &5854620842139408161
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5854620844083239936, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: _listener
+      value: 
+      objectReference: {fileID: 1129807728}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239937, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239999, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManagers
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 511b17e512d5648cf81faef6eb17bb43, type: 3}

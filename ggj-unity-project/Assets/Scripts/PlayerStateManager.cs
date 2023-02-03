@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using GGJ2022;
+using GGJ2022.Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -58,6 +59,7 @@ public class PlayerStateManager : MonoBehaviour
                 var dir = _movementController.GetMoveDirectionFromInputVector(); 
                 _rollingAttackController.TriggerRoll(dir);
                 _animationManager.DoAnimationTrigger("EnterRoll");
+                SFXAudioEventDriver.StaticFireSFXEvent("SnailRoll");
                 break; 
             case States.Move:
                 _movementController.enabled = true; 
