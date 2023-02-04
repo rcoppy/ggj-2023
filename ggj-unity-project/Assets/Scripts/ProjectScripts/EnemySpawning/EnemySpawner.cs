@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
          );
 
      grid = GetComponent<ChunkGrid>();
+     
+     // spawn a bunch
    }
 
    public List<GameObject> _currentEnemies = new List<GameObject>();
