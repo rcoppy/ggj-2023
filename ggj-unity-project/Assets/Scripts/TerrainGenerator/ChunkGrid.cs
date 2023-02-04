@@ -27,7 +27,7 @@ public class ChunkGrid : MonoBehaviour
 
 
     // this is in "chunk space" so {0,0, 1,0, 2,0,} etc.
-    private Vector3 currentChunkCoords = new Vector3();
+    private Vector3 currentChunkCoords;
 
     private void Awake()
     {
@@ -48,10 +48,9 @@ public class ChunkGrid : MonoBehaviour
         GenerateNeighborsFromPosition(Player.transform.position);
     }
 
-<<<<<<< HEAD
     public UnityEvent SpawnNewEnemies;
+    public UnityEvent DestroyEnemy;
     
-=======
     private GameObject CreateChunk()
     {
         GameObject c = Instantiate(Chunk, new Vector3(0f, 0f, 0f), Quaternion.identity);
@@ -59,9 +58,8 @@ public class ChunkGrid : MonoBehaviour
         return c;
     }
 
-    public void Update()
-    {
-        //Vector3 currentChunkPos = GetCurrentChunkPos();
+    public void Update(){
+    //Vector3 currentChunkPos = GetCurrentChunkPos();
         //Debug.Log($"{currentChunkPos.x}, {currentChunkPos.z}");
 
         // get the current player's chunk
@@ -100,6 +98,7 @@ public class ChunkGrid : MonoBehaviour
                 //Debug.Log($"removing {chunk.transform.position}");
                 _chunksPool.Release(chunk);
                 temporaryChunksToRemove.Add(chunk);
+                DestroyEnemy?.Invoke();
             }
             else
             {
@@ -153,7 +152,7 @@ public class ChunkGrid : MonoBehaviour
         return neighbors;
     }
 
-    private GameObject GetChunkByPos(Vector3 position)
+    public GameObject GetChunkByPos(Vector3 position)
     {
         foreach (GameObject chunk in currentChunks)
         {
@@ -179,6 +178,7 @@ public class ChunkGrid : MonoBehaviour
                     chunk = _chunksPool.Get();
                     chunk.transform.position = chunkPosition;
                     currentChunks.Add(chunk);
+                    SpawnNewEnemies?.Invoke();
                 }
             }
         }
