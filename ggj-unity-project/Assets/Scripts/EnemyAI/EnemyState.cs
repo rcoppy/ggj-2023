@@ -52,6 +52,7 @@ namespace GGJ2022.EnemyAI
         private Vector3 _destinationPosition;
 
         [SerializeField] private Transform _attackTarget;
+        public Transform AttackTarget => _attackTarget; 
 
         private bool _isPlayerObstructed = false;
 
@@ -281,8 +282,9 @@ namespace GGJ2022.EnemyAI
                             _canMove = false;
                             _isAttackInProgress = true;
                             _lastAttackTime = Time.time; 
-                            DoRanged();
                             OnStartedAttacking?.Invoke(_state);
+                            DoRanged();
+                            
                         }
                         else
                         {

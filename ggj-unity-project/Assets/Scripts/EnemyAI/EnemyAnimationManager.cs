@@ -20,6 +20,7 @@ namespace GGJ2022.EnemyAI
         [SerializeField] private UnityEvent OnStartedMoving;
         [SerializeField] private UnityEvent OnStoppedMoving;
 
+        [SerializeField] private bool _trackPuppetToTarget = false; 
         [SerializeField] GameObject[] _puppets;
         [SerializeField] private float _puppetYRotOffset = 0f; 
         [SerializeField] private EnemyProps _props;
@@ -37,7 +38,9 @@ namespace GGJ2022.EnemyAI
 
         void UpdatePuppet()
         {
-            var vel = _rigidbody.velocity;
+            var vel = _trackPuppetToTarget ? _enemyState.AttackTarget.position - transform.position 
+                : _rigidbody.velocity;
+            
             vel.y = 0;
 
             if (vel.magnitude > 0.1f)
@@ -106,15 +109,22 @@ namespace GGJ2022.EnemyAI
 
         private void HandleStartedAttack(EnemyState.States state)
         {
-            if (state == EnemyState.States.DoingMelee)
+            try
             {
-                SFXAudioEventDriver.Instance.FireSFXEvent(_props.DoMeleeAttackSound);
+                if (state == EnemyState.States.DoingMelee)
+                {
+                    SFXAudioEventDriver.Instance.FireSFXEvent(_props.DoMeleeAttackSound);
+                }
+                else
+                {
+                    SFXAudioEventDriver.Instance.FireSFXEvent(_props.DoRangedAttackSound);
+                }
             }
-            else
+            catch
             {
-                SFXAudioEventDriver.Instance.FireSFXEvent(_props.DoRangedAttackSound);
+                Debug.LogError("not all sounds implemented");
             }
-            
+
             OnStartedAttacking?.Invoke();
         }
         
