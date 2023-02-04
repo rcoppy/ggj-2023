@@ -18,7 +18,7 @@ public class RollingAttackController : MonoBehaviour
     [SerializeField] private float _rollImpulse = 10f;
     [SerializeField] private float _maxRollTime = 1f; 
     
-    
+     
     
     // Start is called before the first frame update
     void OnEnable()
@@ -36,10 +36,6 @@ public class RollingAttackController : MonoBehaviour
                 _isRolling = false;
                 OnRollEnd?.Invoke();
             }
-        }
-        else
-        {
-            
         }
     }
 
