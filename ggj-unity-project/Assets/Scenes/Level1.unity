@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.055708002, g: 0.14786777, b: 0.12816629, a: 1}
+  m_IndirectSpecularColor: {r: 0.055656165, g: 0.14770702, b: 0.12816201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -745,6 +745,7 @@ GameObject:
   - component: {fileID: 778169270}
   - component: {fileID: 778169273}
   - component: {fileID: 778169274}
+  - component: {fileID: 778169275}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -828,7 +829,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 15
+          m_IntArgument: 20
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -861,11 +862,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
-  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
-  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
+  - {fileID: 3855093777375709792, guid: 4083e2b9f8c49440281d616a9e4b716b, type: 3}
+  - {fileID: 4577634629969848652, guid: abcc8eabdc8374583a304ff41cd8e938, type: 3}
   NoiseyBoi: {fileID: 2800000, guid: 501c2c60b9346b146a7cf9c3a8708aeb, type: 3}
   Player: {fileID: 3693356189749554537}
+--- !u!114 &778169275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778169269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30c2a5ad8e2c477fadcec4f3de3c81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultPlayerObject: {fileID: 3693356189749554537}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,6 +1454,18 @@ PrefabInstance:
     - target: {fileID: 316583686, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960220778, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9, type: 3}
+      propertyPath: _maxRollTime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960220778, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9, type: 3}
+      propertyPath: _rollImpulse
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960220778, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9, type: 3}
+      propertyPath: _targetMultiplier
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 3693356188354065673, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
         type: 3}

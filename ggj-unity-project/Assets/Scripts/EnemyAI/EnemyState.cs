@@ -551,14 +551,16 @@ namespace GGJ2022.EnemyAI
             _destinationPosition = transform.position;
             _lastAttackTime = Time.time; 
 
+        }
+
+        private void OnEnable()
+        {
             if (_attackTarget == null)
             {
                 _attackTarget = LevelStateManager.Instance.PlayerObject.transform; 
             }
             
             _attackTargetRigidbody = _attackTarget.GetComponent<Rigidbody>();
-
-            
         }
 
         // Update is called once per frame
