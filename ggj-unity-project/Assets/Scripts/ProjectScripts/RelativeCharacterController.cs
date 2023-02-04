@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -51,6 +52,7 @@ namespace GGJ2022
         [SerializeField] GameObject[] _puppets;
 
         private Vector2 _lastNonzeroMoveVector;
+        public Vector2 LastNonzeroMoveVector => _lastNonzeroMoveVector; 
 
         public bool IsOnGround
         {
@@ -113,6 +115,16 @@ namespace GGJ2022
             // }
         }
 
+        private void OnEnable()
+        {
+            // Debug.Log("hello");
+            // deals with a roll exit edge case
+            if (_isWalking)
+            {
+                Debug.Log("restart walk");
+                OnWalkStarted?.Invoke();
+            }
+        }
 
         void UpdatePuppet()
         {
@@ -144,10 +156,15 @@ namespace GGJ2022
                 var intendedDirection = GetMoveDirectionFromInputVector();
                 var direction = GetDeflectedMoveDirection(intendedDirection);
 
-                if (!_isWalking && IsOnGround && direction.magnitude > 0.085f)
+                if (!_isWalking && IsOnGround && (direction.magnitude > 0.085f || velLateral.magnitude > 0.08f))
                 {
                     _isWalking = true;
                     OnWalkStarted?.Invoke();
+                } else if (velLateral.magnitude < 0.001f && direction.magnitude < 0.01f && _isWalking)
+                {
+                    // Debug.Log("ended walk");
+                    OnWalkEnded?.Invoke();
+                    _isWalking = false; 
                 }
 
                 if (velLateral.magnitude < _maxForwardSpeed)
@@ -158,7 +175,7 @@ namespace GGJ2022
 
 
             // ground friction
-            if (IsOnGround && !_isLateralInputActive)
+            if (IsOnGround) // && !_isLateralInputActive)
             {
                 // TODO: change to force-based
                 velLateral *= Mathf.Max(0.1f, 1f - _groundFriction);
@@ -176,14 +193,15 @@ namespace GGJ2022
 
             //float lateralSpeed = Mathf.Min(velLateral.magnitude, _maxForwardSpeed);
 
-            velUp = _rigidbody.velocity.y * Vector3.up;
+            /*velUp = _rigidbody.velocity.y * Vector3.up;
             velLateral = _rigidbody.velocity - velUp;
 
             if (velLateral.magnitude < 0.08f && _isWalking)
             {
+                // Debug.Log("ended walk");
                 OnWalkEnded?.Invoke();
                 _isWalking = false; 
-            }
+            }*/
             
             UpdatePuppet();
         }
