@@ -28,7 +28,7 @@ public class TargetingController : MonoBehaviour
     private RelativeCharacterController _characterController; 
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _characterController = GetComponent<RelativeCharacterController>();
 
