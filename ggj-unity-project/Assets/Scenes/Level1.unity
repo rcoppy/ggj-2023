@@ -744,6 +744,7 @@ GameObject:
   - component: {fileID: 778169271}
   - component: {fileID: 778169270}
   - component: {fileID: 778169273}
+  - component: {fileID: 778169274}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -810,12 +811,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chunk: {fileID: 3994852343847657827, guid: a1515db851b3c4eed873348790152c6f, type: 3}
+  sizeOfChunk: 0
   Player: {fileID: 3693356189749554537}
   GroundMaterials:
   - {fileID: 2100000, guid: 113498de1f4a8424fabee76bedd8d3da, type: 2}
   - {fileID: 2100000, guid: 7de137f80fe031543bb3a1b29603b15a, type: 2}
   - {fileID: 2100000, guid: 6dac5e4370ab8fa4880fb99c00862ff5, type: 2}
   - {fileID: 2100000, guid: 355c3d4a24f4ef4449ef459f6e602aeb, type: 2}
+  SpawnNewEnemies:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 778169274}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: SpawnEnemyEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 15
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  DestroyEnemy:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 778169274}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: RemoveEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &778169274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778169269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb84cb6033d2d949ac8ab4d7a19832e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyPrefabs:
+  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
+  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
+  - {fileID: 8913159255813251701, guid: a21a2eea8af8e60498b21609c00311c1, type: 3}
+  NoiseyBoi: {fileID: 2800000, guid: 501c2c60b9346b146a7cf9c3a8708aeb, type: 3}
+  Player: {fileID: 3693356189749554537}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1475,16 +1525,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3693356189749554536}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3693356189749554538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3693356189749554537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aad9fe7a2707358499a9a36986ce8418, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingHealth: 0
