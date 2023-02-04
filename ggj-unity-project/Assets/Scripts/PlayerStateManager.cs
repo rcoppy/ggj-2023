@@ -32,8 +32,8 @@ public class PlayerStateManager : MonoBehaviour
         _rollingAttackController.OnRollEnd += () =>
         {
             Debug.Log("roll ended");
-            _animationManager.DoAnimationTrigger("ExitRoll"); 
             SetActiveState(States.Move);
+            _animationManager.DoAnimationTrigger("ExitRoll");
         };
         
     }
