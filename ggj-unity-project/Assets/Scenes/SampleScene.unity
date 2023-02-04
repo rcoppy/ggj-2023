@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.055708002, g: 0.14786777, b: 0.12816629, a: 1}
+  m_IndirectSpecularColor: {r: 0.055656165, g: 0.14770702, b: 0.12816201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1133,8 +1133,57 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &583957185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583957182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b0da1f694c44ad890e6e3f49e167bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _props: {fileID: 11400000, guid: 5b4ec703c595646b2a5c6639c73db61f, type: 2}
+--- !u!114 &583957186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583957182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96f843de60a4490eb725b0c86699150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxAggro: 100
+  _aggroCoolDownRate: 15
+  _aggroLevel: 0
+  _sightRadius: 15
+  _attackRangeRadius: 3
+  _canFly: 0
+  _shouldFlee: 1
+  _shouldPatrol: 1
+  _attackTarget: {fileID: 0}
+  _isRangedAttackEnabled: 0
+  _isMeleeAttackEnabled: 1
+  _maxWalkSpeed: 3
+  _maxRunSpeed: 5
+  _healthFleeingThreshold: 1
+  _meleeDamage: 1
+  _rangedDamage: 1
+  _maxHealth: 5
+  _deathTimeout: 2
+  _layersToExclude:
+    serializedVersion: 2
+    m_Bits: 64
+  _projectile: {fileID: 0}
+  _attackCooldownTime: 0.8
+  IsAwake: 1
 --- !u!1 &702183490 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bf0159d4a3221c2478a05f2e9dbcf731,
@@ -1337,6 +1386,7 @@ GameObject:
   - component: {fileID: 778169272}
   - component: {fileID: 778169271}
   - component: {fileID: 778169270}
+  - component: {fileID: 778169273}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1390,6 +1440,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778169273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778169269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b30c2a5ad8e2c477fadcec4f3de3c81c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultPlayerObject: {fileID: 3693356189749554537}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2853,6 +2916,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9, type: 3}
+--- !u!1 &3693356189749554537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3693356188354065713, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3693356189749554536}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4675211972131670340
 PrefabInstance:
   m_ObjectHideFlags: 0
