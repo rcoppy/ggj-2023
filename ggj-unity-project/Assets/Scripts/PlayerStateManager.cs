@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using GGJ2022;
@@ -6,6 +7,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerAnimationManager))]
+[RequireComponent(typeof(RelativeCharacterController))]
+[RequireComponent(typeof(RollingAttackController))]
+[RequireComponent(typeof(TargetingController))]
 public class PlayerStateManager : MonoBehaviour
 {
     public enum States
@@ -16,16 +20,26 @@ public class PlayerStateManager : MonoBehaviour
         Die
     }
 
-    [SerializeField] private bool _isTargeting = false;
+    private bool _isTargeting = false;
     public bool IsTargeting => _isTargeting;
 
-    [SerializeField] private RelativeCharacterController _movementController;
-    [SerializeField] private RollingAttackController _rollingAttackController;
+    private RelativeCharacterController _movementController;
+    private RollingAttackController _rollingAttackController;
+    private PlayerAnimationManager _animationManager;
+    private TargetingController _targetingController; 
+    
+    private States _activeState = States.Move;
 
-    [SerializeField] private PlayerAnimationManager _animationManager; 
-    
-    private States _activeState = States.Move; 
-    
+    private void Awake()
+    {
+        _movementController = GetComponent<RelativeCharacterController>();
+        _rollingAttackController = GetComponent<RollingAttackController>();
+        _animationManager = GetComponent<PlayerAnimationManager>();
+        _targetingController = GetComponent<TargetingController>(); 
+        
+        SetTargeting(false);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +55,7 @@ public class PlayerStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     void SetActiveState(States state)
@@ -55,9 +69,17 @@ public class PlayerStateManager : MonoBehaviour
         {
             case States.Attack:
                 _rollingAttackController.enabled = true;
+                
+                if (_targetingController.DistanceToTarget() > 2f * _targetingController.TargetingRadius)
+                {
+                    SetTargeting(false);
+                }
 
-                var dir = _movementController.GetMoveDirectionFromInputVector(); 
-                _rollingAttackController.TriggerRoll(dir);
+                var dir = _isTargeting ? _targetingController.DirectionToTarget() 
+                    : _movementController.GetMoveDirectionFromInputVector(); 
+                
+                _rollingAttackController.TriggerRoll(dir, _isTargeting);
+                
                 _animationManager.DoAnimationTrigger("EnterRoll");
                 SFXAudioEventDriver.StaticFireSFXEvent("SnailRoll");
                 break; 
@@ -66,8 +88,10 @@ public class PlayerStateManager : MonoBehaviour
                 break; 
             case States.Die:
                 _animationManager.DoAnimationTrigger("Die");
+                SetTargeting(false);
                 break;
             case States.Disabled:
+                SetTargeting(false);
                 break; 
         }
 
@@ -76,14 +100,36 @@ public class PlayerStateManager : MonoBehaviour
 
     public void ToggleTargeting(InputAction.CallbackContext context)
     {
+        if (_activeState is States.Die or States.Disabled) return;
+        
         if (context.performed)
         {
-            _isTargeting = !_isTargeting; 
+            _isTargeting = !_isTargeting;
+            _targetingController.enabled = _isTargeting; 
         }
+    }
+
+    public void CycleTargeting(InputAction.CallbackContext context)
+    {
+        if (_activeState is States.Die or States.Disabled) return;
+        if (!_isTargeting) return; 
+        
+        if (context.performed)
+        {
+            _targetingController.CycleTargets(); 
+        }
+    }
+    
+    void SetTargeting(bool flag)
+    {
+        _isTargeting = flag;
+        _targetingController.enabled = flag;
     }
 
     public void DoAttack(InputAction.CallbackContext context)
     {
+        if (_activeState is States.Die or States.Disabled) return; 
+        
         if (context.performed && _activeState == States.Move)
         {
             SetActiveState(States.Attack);

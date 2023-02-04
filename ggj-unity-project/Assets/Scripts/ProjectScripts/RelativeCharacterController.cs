@@ -52,6 +52,7 @@ namespace GGJ2022
         [SerializeField] GameObject[] _puppets;
 
         private Vector2 _lastNonzeroMoveVector;
+        public Vector2 LastNonzeroMoveVector => _lastNonzeroMoveVector; 
 
         public bool IsOnGround
         {
