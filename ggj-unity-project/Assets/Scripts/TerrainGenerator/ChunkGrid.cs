@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Pool;
+using Random = System.Random;
 
 public class ChunkGrid : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ChunkGrid : MonoBehaviour
 
     public GameObject Player;
 
+    public List<Material> GroundMaterials;
 
     private List<Vector3> newNeighborPositions = new List<Vector3>();
     private List<Vector3> currentNeighborPositions = new List<Vector3>();
@@ -35,19 +37,28 @@ public class ChunkGrid : MonoBehaviour
     private void Start()
     {
         _chunksPool = new ObjectPool<GameObject>(
-            createFunc: () => Instantiate(Chunk, new Vector3(0f, 0f, 0f), Quaternion.identity),
-            actionOnGet: (obj) => obj.SetActive(true),
-            actionOnRelease: (obj) => obj.SetActive(false),
-            actionOnDestroy: (obj) => Destroy(obj),
-            false,
-            defaultCapacity: 20,
+           createFunc: CreateChunk, 
+            actionOnGet: (obj) => obj.SetActive(true), 
+            actionOnRelease: (obj) => obj.SetActive(false), 
+            actionOnDestroy: (obj) => Destroy(obj), 
+            false, 
+            defaultCapacity: 20, 
             20);
 
         GenerateNeighborsFromPosition(Player.transform.position);
     }
 
+<<<<<<< HEAD
     public UnityEvent SpawnNewEnemies;
     
+=======
+    private GameObject CreateChunk()
+    {
+        GameObject c = Instantiate(Chunk, new Vector3(0f, 0f, 0f), Quaternion.identity);
+        c.GetComponent<Renderer>().material = GroundMaterials[UnityEngine.Random.Range(0, GroundMaterials.Count)];
+        return c;
+    }
+
     public void Update()
     {
         //Vector3 currentChunkPos = GetCurrentChunkPos();
@@ -55,9 +66,9 @@ public class ChunkGrid : MonoBehaviour
 
         // get the current player's chunk
         Vector3 newChunkCoords = GetPlayerCurrentChunkCoords();
-        Debug.Log($"{newChunkCoords.x}, {newChunkCoords.z}");
-
-        // note the current chunk, and compare if this is different to the old chunk. if it is the same, do nothing.
+       //Debug.Log($"{newChunkCoords.x}, {newChunkCoords.z}");
+        
+       // note the current chunk, and compare if this is different to the old chunk. if it is the same, do nothing.
         if (newChunkCoords == currentChunkCoords)
         {
             return;
@@ -86,7 +97,7 @@ public class ChunkGrid : MonoBehaviour
             // TODO this chunk is no longer a current neighbor. this math doesnt seem right.
             if (!newNeighborPositions.Contains(chunk.transform.position))
             {
-                Debug.Log($"removing {chunk.transform.position}");
+                //Debug.Log($"removing {chunk.transform.position}");
                 _chunksPool.Release(chunk);
                 temporaryChunksToRemove.Add(chunk);
             }

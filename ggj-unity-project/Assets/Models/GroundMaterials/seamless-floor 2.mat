@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: seamless
+  m_Name: seamless-floor 2
   m_Shader: {fileID: -6465566751694194690, guid: d1f4561004a86d34da644c9a5e283176,
     type: 3}
   m_ValidKeywords: []
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Albedo:
-        m_Texture: {fileID: 2800000, guid: 33cc1a76581ae484facbb15ec0c3f7fe, type: 3}
+        m_Texture: {fileID: 2800000, guid: c74db10a7a0e1a84a840068d7613d912, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
