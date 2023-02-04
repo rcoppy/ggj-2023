@@ -228,7 +228,8 @@ namespace GGJ2022.EnemyAI
 
                     if (CheckIsPlayerInSightRange())
                     {
-
+                        OnSawPlayer?.Invoke();
+                        
                         if (_isRangedAttackEnabled)
                         {
                             Vector3? result = ChooseRangedPosition();
@@ -580,7 +581,11 @@ namespace GGJ2022.EnemyAI
             
             if (_canMove && distanceToDestination > distanceBetweenColliders)
             {
-                _isMoving = true;
+                if (!_isMoving)
+                {
+                    _isMoving = true; 
+                    OnStartedMoving?.Invoke();
+                } 
 
                 // take out vertical component 
                 var moveDirection = (directionVector - Vector3.Dot(Vector3.up, directionVector) * Vector3.up)
@@ -611,6 +616,7 @@ namespace GGJ2022.EnemyAI
                 if (_rigidbody.velocity.magnitude < 0.05f)
                 {
                     _isMoving = false; 
+                    OnStoppedMoving?.Invoke();
                 }
 
                 // if reached target and player is there, attack
