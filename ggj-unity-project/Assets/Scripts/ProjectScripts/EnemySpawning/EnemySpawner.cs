@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.Serialization;
+using Random = Unity.Mathematics.Random;
 
 public class EnemySpawner : MonoBehaviour
 {
    private ObjectPool<GameObject> _enemyPool;
 
+   private List<GameObject> _currentEnemies = new List<GameObject>();
 
    public List<GameObject> EnemyPrefabs;
-   private void Start()
+   private void Awake()
    {
      _enemyPool = new ObjectPool<GameObject>(
          createFunc: CreateEnemy,
@@ -20,57 +22,84 @@ public class EnemySpawner : MonoBehaviour
          actionOnDestroy: (obj) => Destroy(obj),
          false,
          defaultCapacity:20,
-         20
-         );
+         100);
 
      grid = GetComponent<ChunkGrid>();
-     
-     // spawn a bunch
    }
 
-   public List<GameObject> _currentEnemies = new List<GameObject>();
-   public void SpawnEnemy()
+
+   private void SpawnEnemy()
    {
-      Vector3 v = GetLocationByNoise();
-      if (v == Vector3.zero)
+      if (!GetDecisionToSpawnByNoise())
       {
          return;
       }
       GameObject e = _enemyPool.Get();
-      e.transform.position = GetLocationByNoise();
+      Vector3 v = new Vector3(
+         Player.transform.position.x + CalculateOffset(),
+         0f,
+         Player.transform.position.z + CalculateOffset());
+      e.transform.position = v;
       _currentEnemies.Add(e);
+   }
+
+   private float CalculateOffset()
+   {
+      float f = UnityEngine.Random.Range(25, grid.sizeOfChunk);
+      float coin = UnityEngine.Random.Range(0, 2);
+      if (coin == 0)
+      {
+         f *= -1;
+      }
+      return f;
+   }
+   
+   public void SpawnEnemyEvent(int number)
+   {
+      for (int i = 0; i < number; i++)
+      {
+         SpawnEnemy();
+      } 
    }
 
    private ChunkGrid grid;
    
    public void RemoveEnemy()
    {
+      List<GameObject> tempGOsToRemove = new List<GameObject>();
       foreach (var e in _currentEnemies)
       {
-         if (grid.GetChunkByPos(e.transform.position) == null)
+         // this logic feels wrong
+         if (Vector3.Distance(Player.transform.position, e.transform.position) > grid.sizeOfChunk * 2)
          {
              _enemyPool.Release(e);
-            _currentEnemies.RemoveAt(_currentEnemies.IndexOf(e));
+             tempGOsToRemove.Add(e);
          }
+      }
+
+      foreach (var e in tempGOsToRemove)
+      {
+         _currentEnemies.RemoveAt(_currentEnemies.IndexOf(e));
       }
    }
 
    public Texture2D NoiseyBoi;
 
    public GameObject Player;
-   private Vector3 GetLocationByNoise()
+   private bool GetDecisionToSpawnByNoise()
    {
+      
       Color c = NoiseyBoi.GetPixel((int) Player.transform.position.x, (int) Player.transform.position.y);
-      if (c.grayscale > 100f)
+      if (c.grayscale < 55f)
       {
-         return Player.transform.position;
+         return true;
       }
       else
       {
         // die
+        return false;
       }
       
-      return Vector3.zero;
    } 
    private void Update()
    {

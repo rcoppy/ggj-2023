@@ -10,7 +10,9 @@ public class ChunkGrid : MonoBehaviour
 {
 
     public GameObject Chunk;
-    private float sizeOfChunk;
+    
+    [HideInInspector]
+    public float sizeOfChunk;
     private ObjectPool<GameObject> _chunksPool;
 
 
@@ -29,13 +31,10 @@ public class ChunkGrid : MonoBehaviour
     // this is in "chunk space" so {0,0, 1,0, 2,0,} etc.
     private Vector3 currentChunkCoords;
 
-    private void Awake()
-    {
-        sizeOfChunk = Chunk.GetComponent<Renderer>().bounds.size.x;
-    }
 
     private void Start()
     {
+        sizeOfChunk = Chunk.GetComponent<Renderer>().bounds.size.x;
         _chunksPool = new ObjectPool<GameObject>(
            createFunc: CreateChunk, 
             actionOnGet: (obj) => obj.SetActive(true), 
