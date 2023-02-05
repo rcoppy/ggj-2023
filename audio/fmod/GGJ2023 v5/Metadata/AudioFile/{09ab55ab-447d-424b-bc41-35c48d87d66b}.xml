@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{09ab55ab-447d-424b-bc41-35c48d87d66b}">
+		<property name="assetPath">
+			<value>Grass_Boots_Heel_03.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.26170833333333332</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{34c82f23-7cef-412b-9e8d-2b2d7dc244a2}</destination>
+		</relationship>
+	</object>
+</objects>

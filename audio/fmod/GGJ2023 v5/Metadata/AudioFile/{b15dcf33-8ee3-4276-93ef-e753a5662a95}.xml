@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b15dcf33-8ee3-4276-93ef-e753a5662a95}">
+		<property name="assetPath">
+			<value>Lil_Dale_Voiceover.21.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{34c82f23-7cef-412b-9e8d-2b2d7dc244a2}</destination>
+		</relationship>
+	</object>
+</objects>
