@@ -24,7 +24,7 @@ public class Credits : MonoBehaviour
     
     public void LoadNewScene()
     {
-        SceneManager.LoadScene("TitleScreen 1");        
+        SceneManager.LoadScene("TitleScreen");        
     }
     
 }

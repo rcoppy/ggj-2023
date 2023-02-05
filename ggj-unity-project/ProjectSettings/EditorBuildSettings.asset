@@ -27,6 +27,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Cutscenes/Cutscene3.unity
     guid: 4468a02a9695e4bd5a30203a49a43a4f
   - enabled: 1
-    path: Assets/Scenes/TitleScreen 1.unity
+    path: Assets/Scenes/TitleScreen.unity
     guid: e8fa419423f4b479f8a7bdfffea99112
   m_configObjects: {}
