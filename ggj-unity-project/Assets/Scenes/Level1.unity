@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.055656165, g: 0.14770702, b: 0.12816201, a: 1}
+  m_IndirectSpecularColor: {r: 0.055708002, g: 0.14786777, b: 0.12816629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -812,7 +812,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Chunk: {fileID: 3994852343847657827, guid: a1515db851b3c4eed873348790152c6f, type: 3}
-  sizeOfChunk: 0
   Player: {fileID: 3693356189749554537}
   GroundMaterials:
   - {fileID: 2100000, guid: 113498de1f4a8424fabee76bedd8d3da, type: 2}
@@ -825,7 +824,7 @@ MonoBehaviour:
       - m_Target: {fileID: 778169274}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
         m_MethodName: SpawnEnemyEvent
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -840,7 +839,7 @@ MonoBehaviour:
       - m_Target: {fileID: 778169274}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
         m_MethodName: RemoveEnemy
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -861,6 +860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb84cb6033d2d949ac8ab4d7a19832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxEntitiesPerChunk: 20
   EnemyPrefabs:
   - {fileID: 3855093777375709792, guid: 4083e2b9f8c49440281d616a9e4b716b, type: 3}
   - {fileID: 4577634629969848652, guid: abcc8eabdc8374583a304ff41cd8e938, type: 3}

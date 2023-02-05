@@ -36,9 +36,11 @@ public class ChunkGrid : MonoBehaviour
 
     private Vector3 _chunkCoordSpaceOrigin = Vector3.zero;
 
+    private float _chunkOffset = -0.5f; 
+    
     private void Start()
     {
-        _sizeOfChunk = Chunk.GetComponent<Renderer>().bounds.size.x;
+        _sizeOfChunk = Chunk.GetComponentInChildren<Renderer>().bounds.size.x;
         _chunksPool = new ObjectPool<GameObject>(
            createFunc: CreateChunk, 
             actionOnGet: (obj) => obj.SetActive(true), 
@@ -48,24 +50,25 @@ public class ChunkGrid : MonoBehaviour
             defaultCapacity: 20, 
             20);
 
-        _chunkCoordSpaceOrigin = Player.transform.position; 
+        _chunkCoordSpaceOrigin = Player.transform.position - _sizeOfChunk * new Vector3(0.5f, 0, 0.5f); 
         
         GenerateNeighborsFromPosition();
     }
 
-    public UnityEvent SpawnNewEnemies;
-    public UnityEvent DestroyEnemy;
+    public UnityEvent<Vector3> SpawnNewEnemies;
+    public UnityEvent<Vector3> DestroyEnemy;
     
     private GameObject CreateChunk()
     {
         GameObject c = Instantiate(Chunk, new Vector3(0f, 0f, 0f), Quaternion.identity);
-        c.GetComponent<Renderer>().material = GroundMaterials[UnityEngine.Random.Range(0, GroundMaterials.Count)];
+        c.GetComponentInChildren<Renderer>().material = GroundMaterials[UnityEngine.Random.Range(0, GroundMaterials.Count)];
         return c;
     }
 
     public void Update() {
         var currentChunkCoords = GetPlayerCurrentChunkCoords();
         var positionInChunk = PositionWithinChunk(Player.transform.position);
+        Debug.Log(positionInChunk);
 
         var offset = positionInChunk - new Vector3(0.25f, 0, 0.25f); 
         bool inBoundsX = offset.x is > 0f and < 0.5f;
@@ -73,36 +76,37 @@ public class ChunkGrid : MonoBehaviour
         bool inBounds = inBoundsX && inBoundsY; 
 
         // note the current chunk, and compare if this is different to the old chunk. if it is the same, do nothing.
-       if (currentChunkCoords == _lastChunkCoords && inBounds) return; 
+        if (currentChunkCoords == _lastChunkCoords && inBounds) return; 
 
         // spawn new enemies
         // todo time for enemies and like noise and shit
-        SpawnNewEnemies?.Invoke();
+        // SpawnNewEnemies?.Invoke();
         
         // get the new neighbors, which should be 9 new chunk positions.
         
         var newNeighborPositions = GetNewNeighborPositions(currentChunkCoords);
         
-        var positionsToSave = new HashSet<Vector3>();
+        var chunksToSave = new List<GameObject>();
         
         foreach (GameObject chunk in _currentChunks)
         {
             if (newNeighborPositions.Contains(chunk.transform.position))
             {
-                positionsToSave.Add(chunk.transform.position);
+                chunksToSave.Add(chunk);
             } else {
-                _chunksPool.Release(chunk);
-                _currentChunks.Remove(chunk);
+                DestroyEnemy?.Invoke(chunk.transform.position);
                 
-                // TODO
-                DestroyEnemy?.Invoke();
+                _chunksPool.Release(chunk);
+                // _currentChunks.Remove(chunk);
             }
         }
+
+        _currentChunks = chunksToSave; 
         
         // _currentNeighborPositions.Clear();
         _currentNeighborPositions = newNeighborPositions; 
 
-        SpawnAllNeighbors(positionsToSave);
+        SpawnAllNeighbors(chunksToSave.Select(c => c.transform.position).ToHashSet());
     }
 
 
@@ -114,19 +118,35 @@ public class ChunkGrid : MonoBehaviour
     
     public Vector3 WorldCoordsToChunk(Vector3 pos)
     {
-        return new Vector3(Mathf.Floor((pos.x - _chunkCoordSpaceOrigin.x) / _sizeOfChunk), 
-            0f, Mathf.Floor((pos.z - _chunkCoordSpaceOrigin.z) / (_sizeOfChunk)));
+        float x = 1f / _sizeOfChunk * (pos.x - _chunkCoordSpaceOrigin.x); // + _chunkOffset;
+        float y = 1f / _sizeOfChunk * (pos.z - _chunkCoordSpaceOrigin.z); // + _chunkOffset;
+
+        return new Vector3(Mathf.Floor(x), 0, Mathf.Floor(y));
+        return new Vector3(Mathf.Floor((pos.x + _chunkOffset * _sizeOfChunk - _chunkCoordSpaceOrigin.x) / _sizeOfChunk), 
+            0f, Mathf.Floor((pos.z + _chunkOffset * _sizeOfChunk - _chunkCoordSpaceOrigin.z) / _sizeOfChunk));
     }
 
     public Vector3 PositionWithinChunk(Vector3 pos)
     {
-        return new Vector3((pos.x - _chunkCoordSpaceOrigin.x) / _sizeOfChunk % 1f, 
-            0f, (pos.z - _chunkCoordSpaceOrigin.z) / (_sizeOfChunk) % 1f);
+        float x = 1f / _sizeOfChunk * (pos.x - _chunkCoordSpaceOrigin.x) + _chunkOffset;
+        float y = 1f / _sizeOfChunk * (pos.z - _chunkCoordSpaceOrigin.z) + _chunkOffset;
+
+        x %= 1f;
+        y %= 1f;
+
+        return new Vector3(x, 0f, y); 
+        return new Vector3(Mathf.Abs((pos.x + _chunkOffset * _sizeOfChunk - _chunkCoordSpaceOrigin.x) / _sizeOfChunk % 1f), 
+            0f, Mathf.Abs((pos.z + _chunkOffset * _sizeOfChunk - _chunkCoordSpaceOrigin.z) / _sizeOfChunk % 1f));
     }
 
     public Vector3 ChunkCoordsToWorld(Vector3 coords)
     {
-        return new Vector3(_chunkCoordSpaceOrigin.x + _sizeOfChunk * coords.x, 0f, _chunkCoordSpaceOrigin.z + _sizeOfChunk * coords.z);
+        float x = _sizeOfChunk * (coords.x - _chunkOffset) + _chunkCoordSpaceOrigin.x;
+        float y = _sizeOfChunk * (coords.z - _chunkOffset) + _chunkCoordSpaceOrigin.z;
+
+        return new Vector3(x, 0, y);
+
+        // return new Vector3(_chunkCoordSpaceOrigin.x + _sizeOfChunk * (coords.x - _chunkOffset), 0f, _chunkCoordSpaceOrigin.z + _sizeOfChunk * (coords.z - _chunkOffset));
     }
 
     private List<Vector3> GetNewNeighborPositions(Vector3 currentChunkCoords)
@@ -179,7 +199,7 @@ public class ChunkGrid : MonoBehaviour
     {
         chunk.transform.position = worldPos;
         _currentChunks.Add(chunk);
-        SpawnNewEnemies?.Invoke();
+        SpawnNewEnemies?.Invoke(worldPos);
     }
 
     private void SpawnAllNeighbors(HashSet<Vector3> existingPositions)
