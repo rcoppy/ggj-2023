@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96f843de60a4490eb725b0c86699150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rangedAttackAnimationDelay: 0
   _maxAggro: 100
   _aggroCoolDownRate: 15
   _aggroLevel: 0
@@ -184,8 +185,8 @@ MonoBehaviour:
   _healthFleeingThreshold: 1
   _meleeDamage: 1
   _rangedDamage: 1
-  _maxHealth: 5
-  _deathTimeout: 2
+  _maxHealth: 1
+  _deathTimeout: 0
   _layersToExclude:
     serializedVersion: 2
     m_Bits: 64
