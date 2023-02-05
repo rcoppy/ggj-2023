@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AudioLoadScreen.unity
     guid: cdf038c7e00294ebe9dff666ea7435cc
   - enabled: 1
-    path: Assets/Scenes/TitleScreen.unity
+    path: Assets/Scenes/CreditsScreen.unity
     guid: bba94023d6a3c474c9dec795d1f64069
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Cutscenes/Cutscene3.unity
     guid: 4468a02a9695e4bd5a30203a49a43a4f
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: e8fa419423f4b479f8a7bdfffea99112
   m_configObjects: {}
