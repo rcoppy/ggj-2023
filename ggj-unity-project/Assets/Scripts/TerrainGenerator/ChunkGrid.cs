@@ -68,7 +68,7 @@ public class ChunkGrid : MonoBehaviour
     public void Update() {
         var currentChunkCoords = GetPlayerCurrentChunkCoords();
         var positionInChunk = PositionWithinChunk(Player.transform.position);
-        Debug.Log(positionInChunk);
+        // Debug.Log(positionInChunk);
 
         var offset = positionInChunk - new Vector3(0.25f, 0, 0.25f); 
         bool inBoundsX = offset.x is > 0f and < 0.5f;
