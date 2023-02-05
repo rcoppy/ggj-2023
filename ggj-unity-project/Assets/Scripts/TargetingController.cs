@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GGJ2022;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -98,7 +99,16 @@ public class TargetingController : MonoBehaviour
 
     public Vector3 DirectionToTarget()
     {
+
         if (_activeTarget == null || !isActiveAndEnabled) return Vector3.zero;
+        Rigidbody rb = GetComponent<Rigidbody>();
+        Rigidbody targetRb = _activeTarget.GetComponent<Rigidbody>();
+
+        if (rb && targetRb)
+        {
+          return (targetRb.worldCenterOfMass - rb.worldCenterOfMass).normalized;   
+        }
+        
         return (_activeTarget.transform.position - transform.position).normalized; 
     }
 

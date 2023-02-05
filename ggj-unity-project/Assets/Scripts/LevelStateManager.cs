@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using GGJ2022.Audio;
 using GGJ2022.EnemyAI;
+using UnityEngine.SceneManagement;
 
 namespace GGJ2022
 {
@@ -26,6 +28,37 @@ namespace GGJ2022
 
         [SerializeField] GameObject _defaultPlayerObject;
         public GameObject PlayerObject => _defaultPlayerObject;
+
+        private int _bodyCount = 0;
+        public int BodyCount => _bodyCount;
+
+        public float ScaleIncrement = 1.05f;
+
+        private float originalPlayerScale = 1.0f;
+
+        private void Start()
+        {
+            originalPlayerScale = PlayerObject.transform.localScale.magnitude;
+        }
+
+        public int GetDamageRatio()
+        {
+            return Mathf.RoundToInt(PlayerObject.transform.localScale.magnitude / originalPlayerScale);
+        }
+        
+        public int NumberOfEnemiesToComplete = 10;
+        
+        public void IncrementBodyCount()
+        {
+            _bodyCount++;
+
+            if (_bodyCount > NumberOfEnemiesToComplete)
+            {
+                SetState(States.LevelCompleted);
+            }
+            
+            PlayerObject.transform.localScale *= ScaleIncrement;
+        }
         
         private bool _isPaused = false;
         private bool _shouldPlayHorror = false; 
@@ -76,6 +109,14 @@ namespace GGJ2022
             SetState(States.MainLevel);
         }
         
+        public string LevelCompletedSceneName;
+        public string OnDeathSceneName;
+
+        public void LoadDeathScene()
+        {
+            SceneManager.LoadScene(OnDeathSceneName);
+        }
+        
         public void SetState(States state)
         {
             // if (_state == state) return;
@@ -93,6 +134,7 @@ namespace GGJ2022
                         break;
                     case States.LevelCompleted:
                         music = MusicManager.States.Paused;
+                        SceneManager.LoadScene(LevelCompletedSceneName);
                         break;
                     case States.MainLevel:
                         music = MusicManager.States.MainTheme;

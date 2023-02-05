@@ -225,13 +225,13 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 1
   HasPlatforms: 1
-  sourceProjectPath: ../audio/fmod/GGJ2023 V4/GGJ2023 v4/GGJ2023 v4.fspro
-  sourceBankPath: ../audio/fmod/GGJ2023 V4/GGJ2023 v4/Build
+  sourceProjectPath: ../audio/fmod/GGJ2023 v5/GGJ2023 v5.fspro
+  sourceBankPath: ../audio/fmod/GGJ2023 v5/Build
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
-  AutomaticEventLoading: 0
-  BankLoadType: 2
+  AutomaticEventLoading: 1
+  BankLoadType: 0
   AutomaticSampleLoading: 0
   EncryptionKey: 
   ImportType: 0
@@ -257,7 +257,7 @@ MonoBehaviour:
   MeterChannelOrdering: 0
   StopEventsOutsideMaxDistance: 0
   BoltUnitOptionsBuildPending: 0
-  EnableErrorCallback: 1
+  EnableErrorCallback: 0
   SharedLibraryUpdateStage: 0
   SharedLibraryTimeSinceStart: 0
   CurrentVersion: 131601
@@ -491,7 +491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: 46fbfdf3fc43db0458918377fd40293e
   parentIdentifier: default
-  active: 1
+  active: 0
   Properties:
     LiveUpdate:
       Value: 0
@@ -500,8 +500,8 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     Overlay:
-      Value: 1
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     Logging:
       Value: 0
       HasValue: 0
@@ -515,17 +515,17 @@ MonoBehaviour:
       Value: 0
       HasValue: 0
     VirtualChannelCount:
-      Value: 64
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     RealChannelCount:
-      Value: 16
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     DSPBufferLength:
-      Value: 512
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     DSPBufferCount:
-      Value: 2
-      HasValue: 1
+      Value: 0
+      HasValue: 0
     Plugins:
       Value: []
       HasValue: 0
@@ -535,7 +535,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: WEBAUDIO
+  OutputTypeName: 
   threadAffinities:
     Value: []
     HasValue: 0

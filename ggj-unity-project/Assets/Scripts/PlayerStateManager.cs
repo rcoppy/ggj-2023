@@ -139,4 +139,9 @@ public class PlayerStateManager : MonoBehaviour
             SetActiveState(States.Attack);
         }
     }
+
+    public void DoShrink()
+    {
+        transform.localScale /= LevelStateManager.Instance.ScaleIncrement;
+    }
 }
