@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3961568866343677584, guid: 40e7d61e29c6b5e418d954e4aad5d1a0,
+  m_Motion: {fileID: -2131077524535724927, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -99,7 +99,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6672695058326777025, guid: 40e7d61e29c6b5e418d954e4aad5d1a0,
+  m_Motion: {fileID: 4313517317476822170, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -201,7 +201,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -2403242874359358974, guid: 40e7d61e29c6b5e418d954e4aad5d1a0,
+  m_Motion: {fileID: -2131077524535724927, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -214,7 +214,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Beetle
+  m_Name: MeleeEnemyGeneric
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: StartMove
@@ -317,7 +317,10 @@ AnimatorStateTransition:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: 
-  m_Conditions: []
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: DoAttack
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4950880194490506516}
   m_Solo: 0
