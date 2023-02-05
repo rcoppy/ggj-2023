@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3855093777375709805}
   - component: {fileID: 3855093777375709806}
   - component: {fileID: 3855093777375709807}
+  - component: {fileID: 8590935260308187584}
   m_Layer: 0
   m_Name: RangedSlug
   m_TagString: Targetable
@@ -156,6 +157,20 @@ MonoBehaviour:
     type: 3}
   _attackCooldownTime: 1.2
   IsAwake: 1
+--- !u!114 &8590935260308187584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3855093777375709792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec2429ddf5e0154caee800f5ec6054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsPerCheck: 0.3
+  _distance: 60
 --- !u!1001 &7114123712315337477
 PrefabInstance:
   m_ObjectHideFlags: 0

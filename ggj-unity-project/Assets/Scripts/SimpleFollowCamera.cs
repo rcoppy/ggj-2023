@@ -95,11 +95,11 @@ public class SimpleFollowCamera : MonoBehaviour
         
         if (visible == OcclusionStatus.Visible)
         {
-            _pitchAngle *= 0.995f; 
+            _pitchAngle *= 0.99f; 
         }
         else
         {
-            Debug.Log(visible);
+            // Debug.Log(visible);
         }
         
         transform.position = Vector3.Lerp(transform.position,
