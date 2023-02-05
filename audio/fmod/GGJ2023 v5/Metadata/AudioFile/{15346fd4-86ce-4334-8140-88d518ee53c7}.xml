@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{15346fd4-86ce-4334-8140-88d518ee53c7}">
+		<property name="assetPath">
+			<value>Snail Movement_4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.125</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{34c82f23-7cef-412b-9e8d-2b2d7dc244a2}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.05571954, g: 0.14774442, b: 0.12827839, a: 1}
+  m_IndirectSpecularColor: {r: 0.055708002, g: 0.14786777, b: 0.12816629, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -880,6 +880,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _defaultPlayerObject: {fileID: 3693356189749554537}
+  ScaleIncrement: 1.3
+  LevelCompletedSceneName: Cutscene2
+  OnDeathSceneName: Level1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,3 +1554,60 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3693356189749554536}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3693356189749554541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1960220777, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3693356189749554536}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693356189749554537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3812b30f1e49404eac6d99c5d41385f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3693356189749554549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693356189749554537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad9fe7a2707358499a9a36986ce8418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldDestroyOnDeath: 0
+  ShouldCountTowardsBodycount: 0
+  StartingHealth: 10
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 778169275}
+        m_TargetAssemblyTypeName: GGJ2022.LevelStateManager, Assembly-CSharp
+        m_MethodName: LoadDeathScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3693356189749554541}
+        m_TargetAssemblyTypeName: PlayerStateManager, Assembly-CSharp
+        m_MethodName: DoShrink
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

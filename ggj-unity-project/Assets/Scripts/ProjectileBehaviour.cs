@@ -36,8 +36,8 @@ namespace GGJ2022
             {
                 // ideally player and enemy should share a common interface
                 // but out of time
-                if (targetType == typeof(PlayerState))
-                    ((PlayerState)state).DoDamage(Damage);
+                if (targetType == typeof(Health))
+                    ((Health)state).DoDamage(Damage);
                 else if (targetType == typeof(EnemyState))
                     ((EnemyState)state).DoDamage(Damage);
             }

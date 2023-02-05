@@ -653,6 +653,7 @@ namespace GGJ2022.EnemyAI
             if (_health <= 0)
             {
                 TriggerStateChange(States.Dead);
+                LevelStateManager.Instance.IncrementBodyCount();
             }
 
             _aggroLevel += 4f * damage; 
@@ -670,7 +671,7 @@ namespace GGJ2022.EnemyAI
 
             foreach (var c in colliders)
             {
-                var state = c.gameObject.GetComponent<PlayerState>();
+                var state = c.gameObject.GetComponent<Health>();
 
                 if (state == null) continue; 
                 
@@ -693,7 +694,7 @@ namespace GGJ2022.EnemyAI
             
             p.transform.position = attackCenter;
             p.parent = gameObject;
-            p.targetType = typeof(PlayerState); 
+            p.targetType = typeof(Health); 
             
             // throw off the aim slightly to decrease difficulty 
             Quaternion error = Quaternion.Inverse(Quaternion.Euler(0f, Random.Range(-10f, 10f), 0f)) * Quaternion.identity;
