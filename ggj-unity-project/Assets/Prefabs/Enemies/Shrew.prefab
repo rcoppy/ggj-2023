@@ -1,0 +1,314 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2539613523149059990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2539613523149059997}
+  - component: {fileID: 2539613523149059994}
+  - component: {fileID: 2539613523149059995}
+  - component: {fileID: 2539613523149059992}
+  - component: {fileID: 2539613523149059993}
+  - component: {fileID: 7928705171869666815}
+  m_Layer: 0
+  m_Name: Shrew
+  m_TagString: Targetable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2539613523149059997
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5665588, y: 0, z: -3.4646587}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1423828410033780601}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &2539613523149059994
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!136 &2539613523149059995
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3123866
+  m_Height: 3.04
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.22, z: -0.00008523464}
+--- !u!114 &2539613523149059992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b0da1f694c44ad890e6e3f49e167bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnDied:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartedAttacking:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2539613523149059992}
+        m_TargetAssemblyTypeName: GGJ2022.EnemyAI.EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DoAttack
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStoppedAttacking:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSawPlayer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2539613523149059992}
+        m_TargetAssemblyTypeName: GGJ2022.EnemyAI.EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SeePlayer
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStartedFleeing:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartedMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2539613523149059992}
+        m_TargetAssemblyTypeName: GGJ2022.EnemyAI.EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StartMove
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnStoppedMoving:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2539613523149059992}
+        m_TargetAssemblyTypeName: GGJ2022.EnemyAI.EnemyAnimationManager, Assembly-CSharp
+        m_MethodName: DoAnimationTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: StopMove
+          m_BoolArgument: 0
+        m_CallState: 2
+  _trackPuppetToTarget: 0
+  _puppets:
+  - {fileID: 1768125514928385475}
+  _puppetYRotOffset: 0
+  _props: {fileID: 11400000, guid: df19e1211da7c4cbda20cc40a355c939, type: 2}
+--- !u!114 &2539613523149059993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e96f843de60a4490eb725b0c86699150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxAggro: 100
+  _aggroCoolDownRate: 15
+  _aggroLevel: 0
+  _sightRadius: 15
+  _attackRangeRadius: 3
+  _canFly: 0
+  _shouldFlee: 1
+  _shouldPatrol: 1
+  _attackTarget: {fileID: 0}
+  _isRangedAttackEnabled: 0
+  _isMeleeAttackEnabled: 1
+  _maxWalkSpeed: 5
+  _maxRunSpeed: 7
+  _healthFleeingThreshold: 1
+  _meleeDamage: 1
+  _rangedDamage: 1
+  _maxHealth: 5
+  _deathTimeout: 2
+  _layersToExclude:
+    serializedVersion: 2
+    m_Bits: 64
+  _projectile: {fileID: 0}
+  _attackCooldownTime: 0.8
+  IsAwake: 1
+--- !u!114 &7928705171869666815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2539613523149059990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ec2429ddf5e0154caee800f5ec6054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _secondsPerCheck: 0.3
+  _distance: 60
+--- !u!1001 &1461643583513776274
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2539613523149059997}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_Name
+      value: ANimated_shrew 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Targetable
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 41f15d8f3aa6d3d40a257d465a6734d9, type: 3}
+--- !u!4 &1423828410033780601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1461643583513776274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1768125514928385475 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 41f15d8f3aa6d3d40a257d465a6734d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1461643583513776274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1461643583513776279
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768125514928385475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: df7a917fd19ab468aa26b2c7c575528a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
