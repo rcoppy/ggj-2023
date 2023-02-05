@@ -16,7 +16,8 @@ public class RollingAttackController : MonoBehaviour
     public bool IsRolling => _isRolling; 
     
     [SerializeField] private float _rollImpulse = 10f;
-    [SerializeField] private float _maxRollTime = 1f; 
+    [SerializeField] private float _maxRollTime = 1f;
+    [SerializeField] private float _targetMultiplier = 2f; 
     
      
     
@@ -47,12 +48,15 @@ public class RollingAttackController : MonoBehaviour
         OnRollEnd?.Invoke(); 
     }
 
-    public void TriggerRoll(Vector3 direction)
+    public void TriggerRoll(Vector3 direction, bool wasTargeted = false)
     {
         if (_isRolling) return;
 
         _isRolling = true; 
-        _rollStartTime = Time.time; 
-        _rigidbody.AddRelativeForce(_rollImpulse * direction.normalized, ForceMode.Impulse);
+        _rollStartTime = Time.time;
+
+        var force = wasTargeted ? _targetMultiplier * _rollImpulse : _rollImpulse; 
+        
+        _rigidbody.AddRelativeForce(force * direction.normalized, ForceMode.Impulse);
     }
 }
