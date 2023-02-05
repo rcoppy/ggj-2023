@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96f843de60a4490eb725b0c86699150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rangedAttackAnimationDelay: 0
   _maxAggro: 100
   _aggroCoolDownRate: 15
   _aggroLevel: 0
@@ -184,8 +185,8 @@ MonoBehaviour:
   _healthFleeingThreshold: 1
   _meleeDamage: 1
   _rangedDamage: 1
-  _maxHealth: 5
-  _deathTimeout: 2
+  _maxHealth: 2
+  _deathTimeout: 0
   _layersToExclude:
     serializedVersion: 2
     m_Bits: 64
@@ -306,6 +307,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &4346904755963562249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694763280779322974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d29113d3b5a4efa93097c0f2a180b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Walk
+  _onlyPlaySometimes: 1
+  _playChance: 4
 --- !u!4 &4039094500334927076 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 40e7d61e29c6b5e418d954e4aad5d1a0,

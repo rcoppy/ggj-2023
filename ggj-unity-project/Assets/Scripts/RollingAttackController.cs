@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GGJ2022.Audio;
+using GGJ2022.EnemyAI;
 using UnityEngine;
 
 public class RollingAttackController : MonoBehaviour
@@ -45,6 +47,13 @@ public class RollingAttackController : MonoBehaviour
         if (!_isRolling) return;
 
         _isRolling = false;
+        SFXAudioEventDriver.StaticFireSFXEvent("SnailImpact");
+        if (collision.gameObject.CompareTag("Targetable"))
+        {
+            collision.gameObject.GetComponent<EnemyState>()?.DoDamage(1);
+            _rigidbody.AddRelativeForce(0.75f * _rollImpulse * (collision.contacts[0].normal + Vector3.up).normalized, ForceMode.Impulse);
+        }
+        
         OnRollEnd?.Invoke(); 
     }
 

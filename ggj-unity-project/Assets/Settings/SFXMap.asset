@@ -37,3 +37,83 @@ MonoBehaviour:
         Data3: 322089628
         Data4: -2024383145
       Path: event:/Audio/SFX/Snail Sounds/Snail Movement
+  - Action: SnailChomp
+    FMODEvent:
+      Guid:
+        Data1: 1525331916
+        Data2: 1095991088
+        Data3: 322089628
+        Data4: -2024383145
+      Path: event:/Audio/SFX/Snail Sounds/Snail Movement
+  - Action: SnailChomp2
+    FMODEvent:
+      Guid:
+        Data1: 1525331916
+        Data2: 1095991088
+        Data3: 322089628
+        Data4: -2024383145
+      Path: event:/Audio/SFX/Snail Sounds/Snail Movement
+  - Action: SnailChomp2
+    FMODEvent:
+      Guid:
+        Data1: 1525331916
+        Data2: 1095991088
+        Data3: 322089628
+        Data4: -2024383145
+      Path: event:/Audio/SFX/Snail Sounds/Snail Movement
+  - Action: BeetleAttack
+    FMODEvent:
+      Guid:
+        Data1: -530442708
+        Data2: 1127706091
+        Data3: -296711267
+        Data4: -175047367
+      Path: event:/Audio/SFX/Enemy Sounds/Beetle/Beetle Attack
+  - Action: BeetleMove
+    FMODEvent:
+      Guid:
+        Data1: 1887291084
+        Data2: 1097252213
+        Data3: 1484497309
+        Data4: -1049081386
+      Path: event:/Audio/SFX/Enemy Sounds/Beetle/Beetle Vocalization
+  - Action: SlugLoad
+    FMODEvent:
+      Guid:
+        Data1: -1089123063
+        Data2: 1089698549
+        Data3: 1777665182
+        Data4: -934980719
+      Path: event:/Audio/SFX/Enemy Sounds/Slug/Slug Pre-Attack
+  - Action: SlugFire
+    FMODEvent:
+      Guid:
+        Data1: -1920209456
+        Data2: 1214274991
+        Data3: 820515247
+        Data4: 1495037336
+      Path: event:/Audio/SFX/Enemy Sounds/Slug/Slug Attack
+  - Action: SlugIdle
+    FMODEvent:
+      Guid:
+        Data1: -1442453989
+        Data2: 1218188410
+        Data3: 2118612385
+        Data4: 545380250
+      Path: event:/Audio/SFX/Enemy Sounds/Slug/Slug Vocalizations
+  - Action: SnailImpact
+    FMODEvent:
+      Guid:
+        Data1: -1072064113
+        Data2: 1245292803
+        Data3: 585316246
+        Data4: -611876615
+      Path: event:/Audio/SFX/Snail Sounds/Snail Impact
+  - Action: SnailIdle
+    FMODEvent:
+      Guid:
+        Data1: 289741632
+        Data2: 1280529589
+        Data3: -1066217085
+        Data4: -1053367990
+      Path: event:/Audio/SFX/Snail Sounds/Snail Vocalizations

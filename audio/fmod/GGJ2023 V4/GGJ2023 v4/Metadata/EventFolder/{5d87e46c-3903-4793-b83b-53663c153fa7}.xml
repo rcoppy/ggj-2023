@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EventFolder" id="{5d87e46c-3903-4793-b83b-53663c153fa7}">
+		<property name="name">
+			<value>Snake Vocalizations</value>
+		</property>
+		<relationship name="folder">
+			<destination>{1963675b-242e-4a5d-807e-3a1ead6c7d88}</destination>
+		</relationship>
+	</object>
+</objects>
