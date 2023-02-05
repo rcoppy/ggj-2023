@@ -45,7 +45,7 @@ public class EnemySpawner : MonoBehaviour
 
    private float CalculateOffset()
    {
-      float f = UnityEngine.Random.Range(25, grid.sizeOfChunk);
+      float f = UnityEngine.Random.Range(25, grid.SizeOfChunk);
       float coin = UnityEngine.Random.Range(0, 2);
       if (coin == 0)
       {
@@ -70,7 +70,7 @@ public class EnemySpawner : MonoBehaviour
       foreach (var e in _currentEnemies)
       {
          // this logic feels wrong
-         if (Vector3.Distance(Player.transform.position, e.transform.position) > grid.sizeOfChunk * 2)
+         if (Vector3.Distance(Player.transform.position, e.transform.position) > grid.SizeOfChunk)
          {
              _enemyPool.Release(e);
              tempGOsToRemove.Add(e);
