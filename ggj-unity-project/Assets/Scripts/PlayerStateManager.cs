@@ -102,11 +102,15 @@ public class PlayerStateManager : MonoBehaviour
     {
         if (_activeState is States.Die or States.Disabled) return;
         
-        if (context.performed)
+        if (context.started)
         {
-            _isTargeting = !_isTargeting;
-            _targetingController.enabled = _isTargeting; 
+            _isTargeting = true;
+        } else if (context.canceled)
+        {
+            _isTargeting = false;
         }
+        
+        _targetingController.enabled = _isTargeting;
     }
 
     public void CycleTargeting(InputAction.CallbackContext context)

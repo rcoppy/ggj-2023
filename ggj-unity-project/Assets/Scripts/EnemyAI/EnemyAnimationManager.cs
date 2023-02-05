@@ -102,14 +102,14 @@ namespace GGJ2022.EnemyAI
 
         private void HandleDamaged()
         {
-            SFXAudioEventDriver.Instance.FireSFXEvent(_props.DamagedSound);
+            // SFXAudioEventDriver.Instance.FireSFXEvent(_props.DamagedSound);
             
             OnDamaged?.Invoke();
         }
 
         private void HandleStartedAttack(EnemyState.States state)
         {
-            try
+            /*try
             {
                 if (state == EnemyState.States.DoingMelee)
                 {
@@ -123,7 +123,7 @@ namespace GGJ2022.EnemyAI
             catch
             {
                 Debug.LogError("not all sounds implemented");
-            }
+            }*/
 
             OnStartedAttacking?.Invoke();
         }
@@ -140,7 +140,7 @@ namespace GGJ2022.EnemyAI
         
         private void HandleStartFleeing()
         {
-            SFXAudioEventDriver.Instance.FireSFXEvent(_props.FleeingSound);
+            // SFXAudioEventDriver.Instance.FireSFXEvent(_props.FleeingSound);
             OnStartedFleeing?.Invoke();
         }
         

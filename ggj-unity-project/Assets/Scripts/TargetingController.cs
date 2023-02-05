@@ -111,6 +111,9 @@ public class TargetingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_activeTarget == null || !_activeTarget.activeInHierarchy)
+        {
+            CycleTargets();
+        }
     }
 }

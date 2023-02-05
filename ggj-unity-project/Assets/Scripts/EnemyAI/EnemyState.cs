@@ -21,6 +21,8 @@ namespace GGJ2022.EnemyAI
             Dead
         }
 
+        [SerializeField] private float _rangedAttackAnimationDelay = 0f; 
+
         [SerializeField] private float _maxAggro = 100f;
 
         [SerializeField] private float _aggroCoolDownRate = 15f;
@@ -159,8 +161,9 @@ namespace GGJ2022.EnemyAI
 
                     if (Time.time - _timeOfDeath > _deathTimeout)
                     {
+                        Debug.Log("im dead");
                         OnDeathTimedOut?.Invoke();
-                        Destroy(gameObject);
+                        // Destroy(gameObject);
                     }
 
                     break;
@@ -229,7 +232,7 @@ namespace GGJ2022.EnemyAI
 
                     if (CheckIsPlayerInSightRange())
                     {
-                        OnSawPlayer?.Invoke();
+                        
                         
                         if (_isRangedAttackEnabled)
                         {
@@ -283,7 +286,7 @@ namespace GGJ2022.EnemyAI
                             _isAttackInProgress = true;
                             _lastAttackTime = Time.time; 
                             OnStartedAttacking?.Invoke(_state);
-                            DoRanged();
+                            StartCoroutine(DoRanged());
                             
                         }
                         else
@@ -448,6 +451,7 @@ namespace GGJ2022.EnemyAI
             {
                 case States.Dead:
                     _timeOfDeath = Time.time;
+                    Debug.Log("started dying");
                     OnDied?.Invoke();
                     break;
 
@@ -482,17 +486,22 @@ namespace GGJ2022.EnemyAI
                     break;
 
                 case States.Seeking:
+                    if (CheckIsPlayerInSightRange())
+                    {
+                        OnSawPlayer?.Invoke();
+                    }
                     break;
 
                 case States.DoingMelee:
                 case States.DoingRanged:
-                    // if (_isAttackInProgress)
-                    // {
-                    //     break;
-                    // }
-                    //
-                    // _isAttackInProgress = true;
-                    // OnStartedAttacking(_state);
+                    /*if (_isAttackInProgress)
+                    {
+                        break;
+                    }
+                    
+                    _isAttackInProgress = true;
+                    OnStartedAttacking(_state);
+                    */
                     break;
             }
         }
@@ -573,8 +582,8 @@ namespace GGJ2022.EnemyAI
 
         private void FixedUpdate()
         {
-            if (!IsAwake) return; 
-            
+            if (!IsAwake || _state == States.Dead) return;
+
             var directionVector = _destinationPosition - transform.position;
             float distanceToDestination = directionVector.magnitude;
 
@@ -671,8 +680,12 @@ namespace GGJ2022.EnemyAI
             }
         }
 
-        void DoRanged()
+        IEnumerator DoRanged()
         {
+            float start = Time.time;
+
+            yield return new WaitForSeconds(_rangedAttackAnimationDelay);
+
             var center = _rigidbody.worldCenterOfMass; 
             var direction = (_attackTargetRigidbody.worldCenterOfMass - center).normalized; 
             var attackCenter = 0.4f * direction + center;

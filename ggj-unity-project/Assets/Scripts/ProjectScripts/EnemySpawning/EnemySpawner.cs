@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GGJ2022.EnemyAI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -122,6 +123,9 @@ public class EnemySpawner : MonoBehaviour
           EnemyPrefabs[UnityEngine.Random.Range(0, EnemyPrefabs.Count)], 
           Vector3.zero,
           Quaternion.identity);
+
+      e.GetComponent<EnemyState>().OnDeathTimedOut += () => _enemyPool.Release(e); 
+      
       return e;
    }
 }

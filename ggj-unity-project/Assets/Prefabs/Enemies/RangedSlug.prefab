@@ -132,11 +132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e96f843de60a4490eb725b0c86699150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rangedAttackAnimationDelay: 1.554
   _maxAggro: 100
   _aggroCoolDownRate: 15
   _aggroLevel: 0
-  _sightRadius: 15
-  _attackRangeRadius: 6.5
+  _sightRadius: 20
+  _attackRangeRadius: 10
   _canFly: 0
   _shouldFlee: 1
   _shouldPatrol: 1
@@ -148,14 +149,14 @@ MonoBehaviour:
   _healthFleeingThreshold: 1
   _meleeDamage: 1
   _rangedDamage: 1
-  _maxHealth: 5
-  _deathTimeout: 2
+  _maxHealth: 4
+  _deathTimeout: 0
   _layersToExclude:
     serializedVersion: 2
     m_Bits: 64
   _projectile: {fileID: 7338644257857577303, guid: 2ac9380a82be0477fa7721f3bb8f65ec,
     type: 3}
-  _attackCooldownTime: 1.2
+  _attackCooldownTime: 6
   IsAwake: 1
 --- !u!114 &8590935260308187584
 MonoBehaviour:
@@ -272,3 +273,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &6269268281050267982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7960983167952754260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d29113d3b5a4efa93097c0f2a180b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Walk
+  _onlyPlaySometimes: 1
+  _playChance: 4
