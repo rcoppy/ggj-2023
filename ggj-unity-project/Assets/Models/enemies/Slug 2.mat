@@ -16,6 +16,7 @@ Material:
   - _MK_LIGHT_CEL
   - _MK_OUTLINE_HULL_CLIP
   - _MK_RECEIVE_SHADOWS
+  - _MK_RIM_SPLIT
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
@@ -222,9 +223,9 @@ Material:
     - _ReceiveShadows: 1
     - _RenderFace: 2
     - _RenderPriority: 0
-    - _Rim: 0
-    - _RimSize: 1
-    - _RimSmoothness: 0.5
+    - _Rim: 2
+    - _RimSize: 2.88
+    - _RimSmoothness: 0
     - _RimThresholdOffset: 0.25
     - _Saturation: 1
     - _SketchMapScale: 1
@@ -244,7 +245,7 @@ Material:
     - _StencilRef: 0
     - _StencilWriteMask: 255
     - _StencilZFail: 0
-    - _StylizeTab: 0
+    - _StylizeTab: 1
     - _Surface: 0
     - _ThresholdMapScale: 1
     - _VertexAnimation: 0

@@ -231,7 +231,7 @@ Material:
     - _Saturation: 1
     - _Shininess: 0
     - _SketchMapScale: 1
-    - _Smoothness: 0.436
+    - _Smoothness: 0.135
     - _SmoothnessSource: 0
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
