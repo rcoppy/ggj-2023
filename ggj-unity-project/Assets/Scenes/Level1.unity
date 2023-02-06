@@ -900,7 +900,7 @@ MonoBehaviour:
           m_StringArgument: DaleyDale
           m_BoolArgument: 0
         m_CallState: 2
-  LevelCompletedSceneName: Cutscene2
+  LevelCompletedSceneName: Level2
   OnDeathSceneName: Level1
 --- !u!1 &832575517
 GameObject:

@@ -705,7 +705,7 @@ MonoBehaviour:
   OnEnemyKill:
     m_PersistentCalls:
       m_Calls: []
-  LevelCompletedSceneName: Cutscene3
+  LevelCompletedSceneName: CreditsScreen
   OnDeathSceneName: Level2
 --- !u!1 &832575517
 GameObject:
