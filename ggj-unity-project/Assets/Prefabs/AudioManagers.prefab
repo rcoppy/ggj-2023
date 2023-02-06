@@ -48,12 +48,12 @@ MonoBehaviour:
   _state: 0
   _musicReference:
     Guid:
-      Data1: 260348927
-      Data2: 1197445515
-      Data3: -1782743643
-      Data4: 1809989306
-    Path: event:/Audio/Music/Menu Music
-  _parameterName: 
+      Data1: -1302670894
+      Data2: 1127094761
+      Data3: 1738889360
+      Data4: 1808846979
+    Path: event:/Audio/Music/Universal Music Map
+  _parameterName: STAGE
 --- !u!114 &5854620844083239936
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.055708002, g: 0.14786777, b: 0.12816629, a: 1}
+  m_IndirectSpecularColor: {r: 0.055656165, g: 0.14770702, b: 0.12816201, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -879,6 +879,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30c2a5ad8e2c477fadcec4f3de3c81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLevelStarted:
+    m_PersistentCalls:
+      m_Calls: []
   _defaultPlayerObject: {fileID: 3693356189749554537}
   ScaleIncrement: 1.3
   NumberOfEnemiesToComplete: 10
@@ -1186,6 +1189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239998, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: _state
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5854620844083239999, guid: 511b17e512d5648cf81faef6eb17bb43,
         type: 3}

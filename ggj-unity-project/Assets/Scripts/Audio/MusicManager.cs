@@ -3,6 +3,9 @@ using UnityEngine;
 using FMOD.Studio;
 using FMODUnity;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
+
 // using GGJ2022.EnemyAI;
 
 
@@ -15,8 +18,7 @@ namespace GGJ2022.Audio
             TitleScreen,
             Paused,
             MainTheme,
-            BossTheme,
-            HorrorAmbience
+            BossTheme
         }
         public static MusicManager Instance = null;
 
@@ -33,21 +35,24 @@ namespace GGJ2022.Audio
         {
             #region singleton
             //Check if instance already exists
-            if (Instance == null)
+            if (Instance != null)
             {
 
                 //if not, set instance to this
-                Instance = this;
+                Destroy(Instance.gameObject);
             }
 
-            //If instance already exists and it's not this:
+            Instance = this; 
+            
+            
+            /*//If instance already exists and it's not this:
             else if (Instance != this)
             {
 
                 //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a CameraManager.
                 Destroy(gameObject);
                 return;
-            }
+            }*/
             
             //Sets this to not be destroyed when reloading scene
             DontDestroyOnLoad(gameObject);
@@ -59,7 +64,6 @@ namespace GGJ2022.Audio
             {
                 [States.Paused] = 5.1f,
                 [States.BossTheme] = 2.1f,
-                [States.HorrorAmbience] = 4.1f,
                 [States.MainTheme] = 1.1f,
                 [States.TitleScreen] = 0f
             };
@@ -75,6 +79,12 @@ namespace GGJ2022.Audio
         {
             _state = state;
             _music.setParameterByName(_parameterName, _parameterMap[state]);
+        }
+
+        public void OnDestroy()
+        {
+            _music.stop(STOP_MODE.ALLOWFADEOUT);
+            _music.release();
         }
         
 #if UNITY_EDITOR

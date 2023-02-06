@@ -9,6 +9,7 @@ namespace GGJ2022
 {
     public class LevelStateManager : MonoBehaviour
     {
+        public UnityEvent OnLevelStarted; 
         public static LevelStateManager Instance = null; 
         public void Awake()
         {
@@ -40,6 +41,7 @@ namespace GGJ2022
         private void Start()
         {
             originalPlayerScale = PlayerObject.transform.localScale.magnitude;
+            OnLevelStarted?.Invoke();
         }
 
         public int GetDamageRatio()
@@ -72,7 +74,7 @@ namespace GGJ2022
             SetIsPaused(!_isPaused);
         }
         
-        public void SetShouldPlayHorror(bool flag)
+        /*public void SetShouldPlayHorror(bool flag)
         {
             _shouldPlayHorror = flag;
 
@@ -84,7 +86,7 @@ namespace GGJ2022
             {
                 SetState(_state);
             }
-        }
+        }*/
         
         public void SetIsPaused(bool flag)
         {

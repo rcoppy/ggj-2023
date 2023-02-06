@@ -141,3 +141,35 @@ MonoBehaviour:
         Data3: 575015605
         Data4: -1488479958
       Path: event:/Audio/SFX/Snail Sounds/Kaiju Dale
+  - Action: SnailStomp
+    FMODEvent:
+      Guid:
+        Data1: 773526004
+        Data2: 1214244875
+        Data3: -1221982792
+        Data4: -268265823
+      Path: event:/Audio/SFX/Enemy Sounds/Kaiju/Kaiju Footstep
+  - Action: SnailShriek1
+    FMODEvent:
+      Guid:
+        Data1: 1228306257
+        Data2: 1212954887
+        Data3: 522164377
+        Data4: 909586810
+      Path: event:/Audio/SFX/Enemy Sounds/Kaiju/Kaiju Vocalizations 1
+  - Action: SnailShriek2
+    FMODEvent:
+      Guid:
+        Data1: -1952059700
+        Data2: 1253691766
+        Data3: 843231674
+        Data4: 2000729877
+      Path: event:/Audio/SFX/Enemy Sounds/Kaiju/Kaiju Vocalizations Grunt
+  - Action: SnailShriekShort
+    FMODEvent:
+      Guid:
+        Data1: -1146152481
+        Data2: 1272568326
+        Data3: 2124820151
+        Data4: 1030909818
+      Path: event:/Audio/SFX/Enemy Sounds/Kaiju/Kaiju Vocalizations SHort

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
-  m_IndirectSpecularColor: {r: 0.049997367, g: 0.11186258, b: 0.090514556, a: 1}
+  m_IndirectSpecularColor: {r: 0.049983986, g: 0.11194384, b: 0.09052457, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -696,9 +696,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b30c2a5ad8e2c477fadcec4f3de3c81c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnLevelStarted:
+    m_PersistentCalls:
+      m_Calls: []
   _defaultPlayerObject: {fileID: 1960220761}
   ScaleIncrement: 1.05
   NumberOfEnemiesToComplete: 10
+  OnEnemyKill:
+    m_PersistentCalls:
+      m_Calls: []
   LevelCompletedSceneName: Cutscene3
   OnDeathSceneName: Level2
 --- !u!1 &832575517
@@ -734,7 +740,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 0.379
-  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 951a14e4b60c94c6fa1bec95c6de3df9, type: 2}
 --- !u!4 &832575519
 Transform:
   m_ObjectHideFlags: 0
@@ -988,6 +994,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5854620844083239998, guid: 511b17e512d5648cf81faef6eb17bb43,
+        type: 3}
+      propertyPath: _state
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5854620844083239999, guid: 511b17e512d5648cf81faef6eb17bb43,
         type: 3}
