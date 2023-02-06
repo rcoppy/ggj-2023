@@ -117,3 +117,27 @@ MonoBehaviour:
         Data3: -1066217085
         Data4: -1053367990
       Path: event:/Audio/SFX/Snail Sounds/Snail Vocalizations
+  - Action: DaleNeedToFeed
+    FMODEvent:
+      Guid:
+        Data1: -858675866
+        Data2: 1147995258
+        Data3: -326261836
+        Data4: -1543450785
+      Path: event:/Audio/SFX/Snail Sounds/I need to feed
+  - Action: DaleyDale
+    FMODEvent:
+      Guid:
+        Data1: -288741350
+        Data2: 1200841965
+        Data3: 1073193397
+        Data4: 40981512
+      Path: event:/Audio/SFX/Snail Sounds/Kaiju Dale 2
+  - Action: KaijuBoy
+    FMODEvent:
+      Guid:
+        Data1: -752869730
+        Data2: 1269087287
+        Data3: 575015605
+        Data4: -1488479958
+      Path: event:/Audio/SFX/Snail Sounds/Kaiju Dale

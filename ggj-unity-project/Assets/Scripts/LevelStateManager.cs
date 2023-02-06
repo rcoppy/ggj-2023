@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using GGJ2022.Audio;
 using GGJ2022.EnemyAI;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace GGJ2022
@@ -56,9 +57,11 @@ namespace GGJ2022
             {
                 SetState(States.LevelCompleted);
             }
-            
+            OnEnemyKill?.Invoke();
             PlayerObject.transform.localScale *= ScaleIncrement;
         }
+
+        public UnityEvent OnEnemyKill;
         
         private bool _isPaused = false;
         private bool _shouldPlayHorror = false; 

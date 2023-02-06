@@ -613,6 +613,7 @@ GameObject:
   - component: {fileID: 477400572635825930}
   - component: {fileID: 477400572635825937}
   - component: {fileID: 6612805301409467293}
+  - component: {fileID: 1960220779}
   m_Layer: 0
   m_Name: KaijuPlayer
   m_TagString: Untagged
@@ -738,7 +739,7 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  _puppetYRotOffset: -90
+  _puppetYRotOffset: 0
   _puppets:
   - {fileID: 3817561052461943766}
   - {fileID: 532689183790116706}
@@ -776,6 +777,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnJumpEnded:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayIntroLine:
     m_PersistentCalls:
       m_Calls: []
 --- !u!54 &3882523615878834792
@@ -985,8 +989,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019bde41b56beba4394f3d47ac3b891c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rollImpulse: 12
-  _maxRollTime: 0.6
+  _rollImpulse: 8.37
+  _maxRollTime: 2
   _targetMultiplier: 2.3
 --- !u!114 &477400572635825937
 MonoBehaviour:
@@ -1023,6 +1027,40 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   _layerCollection: {fileID: 11400000, guid: 106511648b5d44b4784b9281f76f9a0f, type: 2}
+--- !u!114 &1960220779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882523615878834769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aad9fe7a2707358499a9a36986ce8418, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShouldDestroyOnDeath: 1
+  ShouldCountTowardsBodycount: 1
+  IsInvincible: 0
+  StartingHealth: 10
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GGJ2022.LevelStateManager, Assembly-CSharp
+        m_MethodName: LoadDeathScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4228068667215519086
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,6 +1740,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1718,7 +1771,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
@@ -1728,7 +1781,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
@@ -1743,7 +1796,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2777767704507fd48a88b38399fc2a30,
         type: 3}

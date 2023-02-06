@@ -97,14 +97,16 @@ namespace GGJ2022
         [SerializeField]
         public UnityEvent OnJumpEnded;
 
-        bool _isWalking = false; 
+        bool _isWalking = false;
 
+        public UnityEvent PlayIntroLine;
+        
         // Start is called before the first frame update
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
             _boundingCapsule = GetComponent<Collider>();
-        
+            PlayIntroLine?.Invoke();
             // _puppet = transform.GetChild(0).gameObject;
             // _puppetAnimator = _puppet.GetComponent<Animator>();
             //

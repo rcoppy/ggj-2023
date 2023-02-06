@@ -881,6 +881,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _defaultPlayerObject: {fileID: 3693356189749554537}
   ScaleIncrement: 1.3
+  NumberOfEnemiesToComplete: 10
+  OnEnemyKill:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1212950823}
+        m_TargetAssemblyTypeName: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+        m_MethodName: FireSFXEvent
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DaleyDale
+          m_BoolArgument: 0
+        m_CallState: 2
   LevelCompletedSceneName: Cutscene2
   OnDeathSceneName: Level1
 --- !u!1 &832575517
@@ -1178,6 +1194,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 511b17e512d5648cf81faef6eb17bb43, type: 3}
+--- !u!114 &1212950823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5854620844083239936, guid: 511b17e512d5648cf81faef6eb17bb43,
+    type: 3}
+  m_PrefabInstance: {fileID: 1212950822}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9f23e308ae024b0b85be947d142d4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1266128469
 GameObject:
   m_ObjectHideFlags: 0
@@ -1491,6 +1519,46 @@ PrefabInstance:
       propertyPath: _referenceCamera
       value: 
       objectReference: {fileID: 330585545}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1212950823}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FireSFXEvent
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GGJ2022.Audio.SFXAudioEventDriver, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: DaleNeedToFeed
+      objectReference: {fileID: 0}
+    - target: {fileID: 3693356188354065714, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
+        type: 3}
+      propertyPath: PlayIntroLine.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3693356188354065719, guid: 9462a4f3ce9ae43cd80ef50c54dfa6f9,
         type: 3}
       propertyPath: m_RootOrder
@@ -1580,6 +1648,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShouldDestroyOnDeath: 0
   ShouldCountTowardsBodycount: 0
+  IsInvincible: 0
   StartingHealth: 10
   OnDeath:
     m_PersistentCalls:

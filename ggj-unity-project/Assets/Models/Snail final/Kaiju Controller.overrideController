@@ -7,5 +7,37 @@ AnimatorOverrideController:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Kaiju Controller
-  m_Controller: {fileID: 0}
-  m_Clips: []
+  m_Controller: {fileID: 9100000, guid: 6102cbd122488471bbfae4ce00b616df, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7865205325350483831, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -3549489045723916961, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: 8279477393714788380, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -3781073082962952576, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: -1249834027413529916, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -5670197557491113316, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: -4529147912563094015, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -5262218814955834848, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: 8643291908231689957, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -3781073082962952576, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: 9131441307388589201, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -3549489045723916961, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: 3540239229549554455, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -3549489045723916961, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
+  - m_OriginalClip: {fileID: 3553013798597095473, guid: 1f4c141591cca423995c444001860338,
+      type: 3}
+    m_OverrideClip: {fileID: -5670197557491113316, guid: 2777767704507fd48a88b38399fc2a30,
+      type: 3}
